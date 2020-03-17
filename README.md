@@ -47,7 +47,7 @@ Emergency contact
 - Temporary leave from quarantine (in version 2) -   for hospitalization, or any other personal reasons that the quarantine officer approves. Start time, end time, permitted location, reason and who approved it. 
 
 # Countermeasures against quarantine violation by bypassing the app
-- Countermeasure 1: the authorities may text/video/voice call the person periodically to ensure that they answer the phone that is tracked, and the phone is indeed within the geofence. 
+- Countermeasure 1: the authorities may text/video/voice call the person periodically to ensure that they answer the phone that is tracked, and the phone is indeed within the geofence and we may also send volunteer/healthcare worker to check on them and even a peer.
 - Countermeasure 2: This will be an automation of countermeasure 1, perhaps in a future version. The app can automatically ask the person to use the front camera and record their picture. This picture can be compared with the picture on file (or with Aadhaar database if possible)
 - Countermeasure 3: Do not install the phones that have the ability to manually set a location (for development purposes). If this can be done on rooted phones, then the app will check and alert if the phone is rooted. If the person has no other phone, then we will end up installing on this phone, but we will flag the phone as rooted so the server will know that the data may be unreliable.
 
