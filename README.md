@@ -62,6 +62,9 @@ The app will have text, audio and video capabilities. There are several reasons 
 
 (more to come)
 
+#Mockup
+- ![](images/1.png)
 
-Mockup
-![](images/1.png)
+- ![](images/2.png)
+
+- ![](images/3.png)
