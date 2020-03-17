@@ -61,3 +61,7 @@ The app will have text, audio and video capabilities. There are several reasons 
 - Determine if a lab test is needed. If yes, then go to their home wearing PPE and take a swab for testing. This will help with containment compared to having the person visit a clinic/hospital
 
 (more to come)
+
+
+Mockup
+![](images/1.png)
