@@ -1,5 +1,7 @@
-import 'package:covidapp/pages/auth.dart';
 import 'package:covidapp/pages/home.dart';
+import 'package:covidapp/pages/login.dart';
+import 'package:covidapp/pages/register.dart';
+import 'package:covidapp/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +22,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (BuildContext context) =>
-            _isAuthenticated ? Homepage() : Authpage(),
+            _isAuthenticated ? Homepage() : WelcomePage(),
+        '/homepage': (BuildContext context) => Homepage(),
+        '/login': (BuildContext context) => LoginPage(),
+        '/register': (BuildContext context) => Registrationpage(),
       },
     );
   }

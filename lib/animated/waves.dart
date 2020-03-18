@@ -7,8 +7,9 @@ class AnimatedWave extends StatelessWidget {
   final double height;
   final double speed;
   final double offset;
+  final Color color;
 
-  AnimatedWave({this.height, this.speed, this.offset = 0.0});
+  AnimatedWave({this.height, this.speed, this.offset = 0.0, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,8 @@ class AnimatedWave extends StatelessWidget {
             tween: Tween(begin: 0.0, end: 2 * pi),
             builder: (context, value) {
               return CustomPaint(
-                foregroundPainter: CurvePainter(value + offset),
+                foregroundPainter:
+                    CurvePainter(value: value + offset, color: color),
               );
             }),
       );
@@ -32,12 +34,13 @@ class AnimatedWave extends StatelessWidget {
 
 class CurvePainter extends CustomPainter {
   final double value;
+  final Color color;
 
-  CurvePainter(this.value);
+  CurvePainter({this.value, this.color});
 
   @override
   void paint(Canvas canvas, Size size) {
-    final white = Paint()..color = Colors.grey.withAlpha(60);
+    final white = Paint()..color = color.withAlpha(60);
     final path = Path();
 
     final y1 = sin(value);
