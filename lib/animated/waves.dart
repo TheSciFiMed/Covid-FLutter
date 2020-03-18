@@ -36,7 +36,7 @@ class CurvePainter extends CustomPainter {
   final double value;
   final Color color;
 
-  CurvePainter({this.value, this.color});
+  CurvePainter({this.value, this.color = Colors.white});
 
   @override
   void paint(Canvas canvas, Size size) {

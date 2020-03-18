@@ -3,4 +3,4 @@ import 'connected.dart';
 
 
 class MainModel extends Model
-    with ConnectedModel {}
+    with ConnectedModel,UserModel {}

@@ -4,16 +4,20 @@ class MyTextField extends StatelessWidget {
   final String label;
   final IconData icon;
   final Function onChanged;
-  final Function onSubmitted;
+  final Function onSaved;
   final String hinttext;
   final bool readOnly;
+  final Function validator;
+  final bool autovalidate;
   MyTextField(
       {this.icon,
       this.label,
       this.onChanged,
       this.hinttext,
-      this.onSubmitted,
-      this.readOnly = false});
+      this.onSaved,
+      this.readOnly = false,
+      this.validator,
+      this.autovalidate = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,10 @@ class MyTextField extends StatelessWidget {
       margin: EdgeInsets.all(10),
       child: TextFormField(
         readOnly: readOnly,
+        onSaved: onSaved,
+        autovalidate: autovalidate,
         onChanged: onChanged,
+        validator: validator,
         decoration: InputDecoration(
           hintText: hinttext,
           hintMaxLines: 2,
