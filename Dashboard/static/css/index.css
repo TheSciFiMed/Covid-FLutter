@@ -1,0 +1,249 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  align-items: center;
+  z-index: 1000;
+}
+div,
+button,
+textarea,
+input,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#logo {
+  padding-left: 2ch;
+}
+#nav-content {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#nav-content > div {
+  width: auto;
+  cursor: pointer;
+}
+.badge1 {
+  position:relative;
+}
+.badge1[data-badge]:after {
+  content:attr(data-badge);
+  position:absolute;
+  top:-10px;
+  
+  font-size:.7em;
+  background:rgb(221, 38, 6);
+  color:white;
+  width:18px;height:18px;
+  text-align:center;
+  line-height:18px;
+  border-radius:50%;
+  box-shadow:0 0 1px #333;
+}
+.container {
+  display: flex;
+  padding-top: 100px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid rgb(199, 193, 193);
+  padding: 5px;
+}
+
+input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+  font-family: "Montserrat";
+}
+
+.fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover {
+  width: 200px;
+  cursor: pointer;
+}
+
+form:hover input {
+  display: block;
+}
+
+form:hover .fa {
+  background: #07051a;
+  color: white;
+}
+#search_result {
+  padding-top: inherit;
+}
+
+.card {
+  max-width: 300px;
+  min-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+.card > img {
+  max-height: 300px;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(128, 127, 127);
+  border-radius: 10px;
+  font-family: "Montserrat";
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+@media only screen and (max-height: 600px) {
+  #map {
+    height: 370px;
+  }
+}
+@media only screen and (min-height: 601px) {
+  #map {
+    height: 500px;
+  }
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#myModal2{
+ 
+  text-align: center;
+  background-color: rgba(235, 230, 230, 0.95); 
+ 
+}
+#myModal2>div>div{
+  border: lightyellow solid 1px;
+  min-height: 50px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+#myModal2>div>div>p{
+  
+  padding-top: 10px;
+}
+@media only screen and (max-width: 700px) {
+  #nav-content > div {
+    width: auto;
+    padding-right: 20px;
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 701px) {
+  #nav-content > div {
+    width: auto;
+    padding-right: 40px;
+  }
+}
