@@ -79,6 +79,7 @@ class LoginPage extends StatelessWidget {
                             MyTextField(
                               icon: Icons.account_circle,
                               label: "Password",
+                              isObscure: true,
                               hinttext: "Enter your Password here...",
                               validator: (String value) {
                                 if (value.isEmpty) {

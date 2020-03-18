@@ -9,6 +9,7 @@ class MyTextField extends StatelessWidget {
   final bool readOnly;
   final Function validator;
   final bool autovalidate;
+  final bool isObscure;
   MyTextField(
       {this.icon,
       this.label,
@@ -17,7 +18,8 @@ class MyTextField extends StatelessWidget {
       this.onSaved,
       this.readOnly = false,
       this.validator,
-      this.autovalidate = false});
+      this.autovalidate = false,
+      this.isObscure});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class MyTextField extends StatelessWidget {
       margin: EdgeInsets.all(10),
       child: TextFormField(
         readOnly: readOnly,
+        obscureText: isObscure,
         onSaved: onSaved,
         autovalidate: autovalidate,
         onChanged: onChanged,
