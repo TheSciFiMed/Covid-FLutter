@@ -1,4 +1,4 @@
-#List of Telehealth options in india. (contributors kindly mention Name and Link to access the option you are adding here.)
+#List of Telehealth options in india. (contributors kindly mention Name and Link to access the option you are adding here)
 
 Free -
 
