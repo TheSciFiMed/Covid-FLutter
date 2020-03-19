@@ -1,0 +1,143 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>COVID-19 INDIA</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./static/css/index.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div
+      style="width:100%;font-size:14px;text-align:center;margin-top: 250px;"
+      id="loader"
+    >
+      "We need to stay fit in these though times"
+    </div>
+    <div id="body" style="display: none;">
+      <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyD6TGKt6aLk0zXViQVlEjI3O0eEJ_UT45A",
+          authDomain: "covid-flutter.firebaseapp.com",
+          databaseURL: "https://covid-flutter.firebaseio.com",
+          projectId: "covid-flutter",
+          storageBucket: "covid-flutter.appspot.com",
+          messagingSenderId: "1018372435584",
+          appId: "1:1018372435584:web:f4c58909b5db83e61bc065",
+          measurementId: "G-VZCJX1XMQ2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+      <div id="navbar" class="navbar green">
+        <div id="logo">
+          <h3>COVID</h3>
+        </div>
+        <div id="nav-content">
+          <div id="alertButton" class=""  onclick="openAlerts()"data-badge="">Alerts</div>
+          <div>Settings</div>
+          <div>Helpline</div>
+        </div>
+      </div>
+      <div class="container">
+        <div id="search" style="padding-top: 50px;">
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous"
+          />
+
+          <form action="" onsubmit="return false">
+            <input id="searchbutton" type="search" autocomplete="off" />
+            <i
+              class="fa fa-search"
+              onclick="populateSearch(document.getElementById('searchbutton').value)"
+            ></i>
+          </form>
+        </div>
+
+        <div>Search for Users</div>
+
+        <div id="search_result"></div>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div id="maps" class="modal-content">
+            <span class="close">&times;</span>
+            <div id="map"></div>
+            <script>
+              var map;
+
+              function extract(obj) {
+                for (var name in obj) {
+                  return {
+                    title: name,
+                    loc: obj[name]
+                  };
+                }
+              }
+
+              function initMap() {
+                var myLatLng = JSON.parse(
+                  window.trackingData[window.trackingData.length - 1]
+                );
+                //extracting the value from first key
+                myLatLng = extract(myLatLng)["loc"];
+                var map = new google.maps.Map(document.getElementById("map"), {
+                  zoom: 16,
+                  center: myLatLng
+                });
+
+              
+                 
+                  var marker = new google.maps.Marker({
+                    position:myLatLng,
+                    map: map,
+                    title: "last here" //can be optimised
+                  });
+                  console.log("map init"); //executed each time
+                
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFrCkSgU3KmbU06ym27Eeqjlotb5sL9I"></script>
+          </div>
+        </div>
+
+        <div id="myModal2" class="modal">
+          <!-- Modal content -->
+          <span style="margin-top:-15px;padding-right: 30px;"class="close">&times;</span>
+          <div id="alerts">
+
+          </div>
+            
+              <div id="clear" style="padding-top: 10px;">
+                <button style="background-color:transparent; color: black;"><b>Clear</b></button>
+              </div>
+                
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+
+  <!--<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+    
+    -->
+  <script src="./static/js/main.js"></script>
+  <script></script>
+</html>
