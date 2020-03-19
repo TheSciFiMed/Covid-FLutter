@@ -122,7 +122,10 @@ return first.get().then(function (documentSnapshots) {
   // Get the last visible document
   window.lastVisible = documentSnapshots.docs[0];
   var elem=document.getElementById('alerts');
-  document.getElementById('alertButton').setAttribute('data-badge',""+documentSnapshots.docs.length)
+  document.getElementById('alertButton').classList.add('badge1')
+  document.getElementById('alertButton').setAttribute('data-badge',""+ documentSnapshots.docs.length);
+
+
   window.lastTime=window.lastVisible.data().time;
   documentSnapshots.forEach(element => {
     
