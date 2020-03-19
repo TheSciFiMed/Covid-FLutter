@@ -4,7 +4,7 @@ Free -
 
 Free trial - Icliniq
 
-Paid - Practo [https://www.practo.com/consult]
+Paid - Practo [https://www.practo.com/consult] <br>
        Icliniq [https://www.icliniq.com/ask-a-doctor-online]
 
 
