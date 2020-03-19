@@ -2,9 +2,10 @@
 
 Free -
 
-Free trial -
+Free trial - Icliniq
 
-Paid - 
+Paid - Practo [https://www.practo.com/consult]
+       Icliniq [https://www.icliniq.com/ask-a-doctor-online]
 
 
 
