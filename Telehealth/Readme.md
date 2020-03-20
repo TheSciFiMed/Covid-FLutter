@@ -2,9 +2,9 @@
 
 Free - UDHC Network http://classworkdecjan.blogspot.com/2017/11/udhc-citizen-science.html
 
-Free trial - Icliniq
+Free trial - Icliniq  [https://www.icliniq.com/ask-a-doctor-online]
 
-Paid - Practo [https://www.practo.com/consult]
+Paid - Practo [https://www.practo.com/consult]  
        Icliniq [https://www.icliniq.com/ask-a-doctor-online]
 
 
