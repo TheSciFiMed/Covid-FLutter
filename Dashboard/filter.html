@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>COVID PROJECT</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+  var url = `https://us-central1-covid-flutter.cloudfunctions.net/filterInfected?radius=`;
+  url+=getParameterByName("radius")+"&lat="+getParameterByName("lat")+"&lng="+getParameterByName("lng")
+  fetch(
+    url
+  )
+    .then(function(response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        window.data=data.result;
+        initMap()
+      });
+    })
+    .catch(function(err) {
+      console.log("Fetch Error :-S", err);
+    });
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: Number(getParameterByName("lat")), lng: Number(getParameterByName("lng"))}
+        });
+
+        
+
+        
+        var markers = window.data.map(function(data) {
+          return new google.maps.Marker({
+            position: data[1],
+            label: data[0]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      
+    </script>
+    <!-- Replace following script src -->
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFrCkSgU3KmbU06ym27Eeqjlotb5sL9I">
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
