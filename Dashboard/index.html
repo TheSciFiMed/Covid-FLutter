@@ -44,7 +44,7 @@
         </div>
         <div id="nav-content">
           <div id="alertButton" class=""  onclick="openAlerts()"data-badge="">Alerts</div>
-          <div>Settings</div>
+          <div onclick="showAllMap()">Location</div>
           <div>Helpline</div>
         </div>
       </div>
@@ -70,6 +70,7 @@
 
         <div id="search_result"></div>
         <div id="myModal" class="modal">
+          
           <!-- Modal content -->
           <div id="maps" class="modal-content">
             <span class="close">&times;</span>
@@ -87,6 +88,21 @@
               }
 
               function initMap() {
+                if(window.aboutoSearch){
+                  var mapOptions = {
+          zoom: 12,
+          center: {lat: 27.397, lng: 81.644}
+        };
+        map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+
+        google.maps.event.addListener(map, 'click', function(event) {
+          window.url+=`lat=${event.latLng.lat()}&lng=${event.latLng.lng()}`
+          window.location.assign(window.url)
+
+        });
+              }
+                else if (window.general){
                 var myLatLng = JSON.parse(
                   window.trackingData[window.trackingData.length - 1]
                 );
@@ -105,7 +121,30 @@
                     title: "last here" //can be optimised
                   });
                   console.log("map init"); //executed each time
-                
+                }
+                else{
+                  var map = new google.maps.Map(document.getElementById("map"), {
+                  zoom: 10,
+                  center: window.allLocations[window.allLocations.length-1]!=null?JSON.parse(window.allLocations[window.allLocations.length-1]):{lat:21.0,lng:81.2}
+                });
+
+              
+                 window.allLocations.map((data)=>{
+                  var marker = new google.maps.Marker({
+                    position:JSON.parse(data),
+                    map: map,
+                    title: "" //can be optimised
+                  });
+                 })
+                 
+                  console.log("map init"); //executed each time
+                }
+              }
+
+              function showAllMap(){
+                window.general=false;
+                initMap();
+                triggerMaps();
               }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFrCkSgU3KmbU06ym27Eeqjlotb5sL9I"></script>
@@ -116,14 +155,19 @@
           <!-- Modal content -->
           <span style="margin-top:-15px;padding-right: 30px;"class="close">&times;</span>
           <div id="alerts">
-
+            
           </div>
             
               <div id="clear" style="padding-top: 10px;">
-                <button style="background-color:transparent; color: black;"><b>Clear</b></button>
+                
               </div>
                 
           </div>
+
+          <div id="myModal3" class="modal">
+            
+          </div>
+
         </div>
 
       </div>
