@@ -1,0 +1,97 @@
+CONTRIBUTOR AGREEMENT (CA) FOR COVID FLUTTER PROJECT
+Project site: https://github.com/TheSciFiMed/Covid-FLutter
+
+Version 1, April 3, 2020.
+
+INTRODUCTION
+
+This Contributor Agreement (“CA”) applies to all contributors - developers, advisors, mentors and those who contribute ideas to the COVID Flutter project (“the project”) . It includes both rules of behaviour and intellectual property agreements.
+
+By participating in the project , you implicitly agree to this agreement as we have made clear on the project website.
+
+However, we would like you to explicitly agree to it by copying and pasting this text into an email, and fill in section 3 (signature). Then email it to covid.ca@nullhypo.com - the email will be archived and forwarded to Senthil Nachimuthu and Avinash Kumar - the two project leads who founded this project. We will keep your contact information private, but your name may be published on the contributors list, unless you instruct us otherwise.
+
+Note that this agreement is designed in good faith to be simple and user friendly. We do not want to overwhelm you with legalese, so sign it with the same good faith.
+
+RULES OF BEHAVIOUR
+
+I understand and agree to the following rules of behaviour :
+
+This project is extremely urgent to control a serious pandemic and I participate in this project in good faith towards this objective.
+
+This project is governed by meritocracy and pragmatism. My contributions will be reviewed based on these two attributes, not by who I am.
+
+I will be pragmatic in prioritising ideas that are essential, quickly implementable and scalable to help millions of lives.
+
+If the ideas are not essential, quickly implementable or scalable, they may be deferred for a future version or disregarded by the project participants. 
+
+If there is a lack of consensus, the project leads will make the final decision.
+
+I will do my best to uphold patient safety, privacy, confidentiality, medical ethics, moral values, medical evidence, continuous learning, open mindedness and the laws of the land.
+
+I will communicate and handle disagreements in a respectful, professional and mature manner.
+
+INTELLECTUAL PROPERTY AGREEMENT
+
+    I understand and agree to the following intellectual property terms:
+
+The undersigned is the author of the contribution.
+
+The undersigned has the legal right to grant the copyright license.
+    
+There is no other entity (e.g. an employer) that can claim rights in the copyright.
+    
+The contribution is an original work.
+    
+The contribution is not subject to third-party licenses, claims, suits, or actions.
+
+The undersigned retains all copyright, patents and other intellectual property rights for their original contributions, and grants a license to the project. 
+
+The contributor may assert their own copyright in any source code file or other work they contribute to the project. COVID Flutter team will assert copyright to software produced or released by this project, recognising the work of all the contributors.
+
+The undersigned grants a perpetual, worldwide, royalty free, free-of-cost license to this project to use the contribution and publish it under the Apache License v2 as open source. 
+
+The project will acknowledge the contribution in the list of contributors, unless the undersigned instructs otherwise. No other compensation is available from this project.
+
+The undersigned understands that the users of this project get all the permissions granted under the Apache License v2. The undersigned has read and understood Apache License v2 (https://www.apache.org/licenses/LICENSE-2.0). 
+
+The undersigned provides the contribution on an “As Is” basis, without any express or implied warranties as to title, non-infringement, merchantability, and/or fitness for a particular purpose. 
+
+The undersigned disclaims any express or implied warranties that would require the contributor to provide ongoing technical support for the contribution.
+
+In case of disputes, the undersigned individual or entity agrees to arbitration by an arbitrator chosen by the project leads and participants in a jurisdiction of their choosing. If arbitration fails, the undersigned may pursue legal action in a jurisdiction chosen by the project leads. If the project leads or participants prevail, the undersigned agrees to pay all legal expenses of the project leads and participants. If the undersigned prevails, the only recourse available to the undersigned is a cease and desist order for any violation of the terms of this agreement.
+
+SIGNATURE
+
+Do you sign this agreement in individual capacity or on behalf of a legal entity (e.g. a company, university or a government)? 
+Specify ‘Individual’ or ‘Legal entity’: 
+
+If you sign as a legal entity, then fill this information:
+Do you have authority to sign this agreement on behalf of the legal entity (yes/no):
+Name of the legal entity:
+Your name:
+Your job title in the legal entity:
+Postal address of the legal entity:
+Email of legal entity:
+Phone number of the legal entity:
+Optional - website, Twitter or LinkedIn address:
+
+Person signing this agreement (for both individuals and legal entities):
+Your full name:
+Today’s date: 
+Your email address:
+Your phone number:
+Your city, state, post code and country:
+Optionally - your qualifications and affiliations:
+Optional - your website, Twitter or LinkedIn address:
+
+We will acknowledge all contributions to the project by default. If you prefer not to mention acknowledgments/contributions list, please write “I opt out” here: 
+
+I affirm that the above information is true to the best of my knowledge. I agree to all the terms of this agreement. 
+
+Electronic signature (fill your full legal name): 
+Date:
+
+[Please email this completed agreement to covid.ca@nullhypo.com]
+
+
