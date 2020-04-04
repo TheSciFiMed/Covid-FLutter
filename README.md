@@ -10,11 +10,20 @@ It has proven difficult to ensure that those under home quarantine will remain a
 The app will rely on these technical capabilities - geolocation, geofencing and voice/video communication.
 
 # Unique Identity
-Each person who enrolls into the app will enter personally identifying information. The information will be stored within the physical boundaries of the country and in compliance with the law of the land. For India, the acceptable identification includes:
-- Aadhaar card
-- Indian Driving license (state and license number)
-- Passport number (country and passport number)
+Each person who enrolls into the app will enter personally identifying information. The information will be stored within the physical boundaries of the country and in compliance with the law of the land. 
+
+For any country, acceptable identification includes:
+- Driving license number (Issuing Authority + license number)
+- Passport number (country + passport number)
+
+For India, acceptable identification includes:
+- Aadhaar card number
 - OCI card number
+
+For US, acceptable identification includes:
+- Social security number, if no other ID is available. However, due to financial security reasons, other identifiers are preferred.
+
+For countries not listed above, if they have a national ID, then the national ID number is preferred.
 
 Any one of the above should be sufficient to uniquely identify an individual. Along with this id, the app needs:
 - Full name
