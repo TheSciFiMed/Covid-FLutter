@@ -59,6 +59,7 @@ class _RegistrationpageState extends State<Registrationpage> {
             ? Scaffold(
                 body: Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Image.network(
                         imageLIst[0],

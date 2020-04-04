@@ -18,6 +18,7 @@ dependencies:
   carousel_slider: ^1.4.1
   url_launcher: ^5.4.2
   geolocator: ^5.3.0
+  workmanager: ^0.2.0
   location:
     git:
       url: git://github.com/Lyokone/flutterlocation.git
