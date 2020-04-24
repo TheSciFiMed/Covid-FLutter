@@ -78,7 +78,7 @@ The app will have text, audio and video capabilities. There are several reasons 
 
 - ![](images/3.png)
 
-Important linkes -
+Important links -
 Pitch - https://bit.ly/CovidPitch  
 Documentation - https://bit.ly/covidprojectdocs  
 Source Code - http://bit.ly/Covid-Source  
