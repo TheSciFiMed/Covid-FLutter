@@ -44,7 +44,9 @@
         </div>
         <div id="nav-content">
           <div id="alertButton" class=""  onclick="openAlerts()"data-badge="">Alerts</div>
+
           <div onclick="showAllMap()">Location</div>
+
           <div>Helpline</div>
         </div>
       </div>
@@ -70,7 +72,7 @@
 
         <div id="search_result"></div>
         <div id="myModal" class="modal">
-          
+
           <!-- Modal content -->
           <div id="maps" class="modal-content">
             <span class="close">&times;</span>
@@ -88,6 +90,7 @@
               }
 
               function initMap() {
+
                 if(window.aboutoSearch){
                   var mapOptions = {
           zoom: 12,
@@ -103,6 +106,7 @@
         });
               }
                 else if (window.general){
+
                 var myLatLng = JSON.parse(
                   window.trackingData[window.trackingData.length - 1]
                 );
@@ -112,6 +116,7 @@
                   zoom: 16,
                   center: myLatLng
                 });
+
 
               
                  
@@ -148,6 +153,19 @@
               }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFrCkSgU3KmbU06ym27Eeqjlotb5sL9I"></script>
+
+<!--                 window.trackingData.map(function(itemString) {
+                  var item = JSON.parse(itemString);
+                  var marker = new google.maps.Marker({
+                    position: extract(item)["loc"],
+                    map: map,
+                    title: extract(item)["title"] //can be optimised
+                  });
+                  console.log("map init");
+                });
+              }
+            </script>
+ -->
           </div>
         </div>
 
@@ -155,6 +173,7 @@
           <!-- Modal content -->
           <span style="margin-top:-15px;padding-right: 30px;"class="close">&times;</span>
           <div id="alerts">
+
             
           </div>
             
@@ -168,6 +187,16 @@
             
           </div>
 
+
+
+<!--           </div>
+            
+              <div id="clear" style="padding-top: 10px;">
+                <button style="background-color:transparent; color: black;"><b>Clear</b></button>
+              </div>
+                
+          </div>
+ -->
         </div>
 
       </div>

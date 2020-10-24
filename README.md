@@ -10,11 +10,20 @@ It has proven difficult to ensure that those under home quarantine will remain a
 The app will rely on these technical capabilities - geolocation, geofencing and voice/video communication.
 
 # Unique Identity
-Each person who enrolls into the app will enter personally identifying information. The information will be stored within the physical boundaries of the country and in compliance with the law of the land. For India, the acceptable identification includes:
-- Aadhaar card
-- Indian Driving license (state and license number)
-- Passport number (country and passport number)
+Each person who enrolls into the app will enter personally identifying information. The information will be stored within the physical boundaries of the country and in compliance with the law of the land. 
+
+For any country, acceptable identification includes:
+- Driving license number (Issuing Authority + license number)
+- Passport number (country + passport number)
+
+For India, acceptable identification includes:
+- Aadhaar card number
 - OCI card number
+
+For US, acceptable identification includes:
+- Social security number, if no other ID is available. However, due to financial security reasons, other identifiers are preferred.
+
+For countries not listed above, if they have a national ID, then the national ID number is preferred.
 
 Any one of the above should be sufficient to uniquely identify an individual. Along with this id, the app needs:
 - Full name
@@ -47,7 +56,7 @@ Emergency contact
 - Temporary leave from quarantine (in version 2) -   for hospitalization, or any other personal reasons that the quarantine officer approves. Start time, end time, permitted location, reason and who approved it. 
 
 # Countermeasures against quarantine violation by bypassing the app
-- Countermeasure 1: the authorities may text/video/voice call the person periodically to ensure that they answer the phone that is tracked, and the phone is indeed within the geofence. 
+- Countermeasure 1: the authorities may text/video/voice call the person periodically to ensure that they answer the phone that is tracked, and the phone is indeed within the geofence and we may also send volunteer/healthcare worker to check on them and even a peer.
 - Countermeasure 2: This will be an automation of countermeasure 1, perhaps in a future version. The app can automatically ask the person to use the front camera and record their picture. This picture can be compared with the picture on file (or with Aadhaar database if possible)
 - Countermeasure 3: Do not install the phones that have the ability to manually set a location (for development purposes). If this can be done on rooted phones, then the app will check and alert if the phone is rooted. If the person has no other phone, then we will end up installing on this phone, but we will flag the phone as rooted so the server will know that the data may be unreliable.
 
@@ -61,3 +70,17 @@ The app will have text, audio and video capabilities. There are several reasons 
 - Determine if a lab test is needed. If yes, then go to their home wearing PPE and take a swab for testing. This will help with containment compared to having the person visit a clinic/hospital
 
 (more to come)
+
+#Mockup
+- ![](images/1.png)
+
+- ![](images/2.png)
+
+- ![](images/3.png)
+
+Important links -
+Pitch - https://bit.ly/CovidPitch  
+Documentation - https://bit.ly/covidprojectdocs  
+Source Code - http://bit.ly/Covid-Source  
+Slack - http://bit.ly/Covid-Slack  
+Blog - https://bit.ly/CovidProjectBlog  
