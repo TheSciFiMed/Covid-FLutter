@@ -19,7 +19,7 @@ class MyTextField extends StatelessWidget {
       this.readOnly = false,
       this.validator,
       this.autovalidate = false,
-      this.isObscure});
+      this.isObscure = false});
 
   @override
   Widget build(BuildContext context) {

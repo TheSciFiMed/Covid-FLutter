@@ -1,0 +1,380 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>COVID-19 INDIA</title>
+
+    <style>
+      body {
+        width: 100%;
+        font-family: "Montserrat";
+      }
+      #logo {
+  padding-left: 2ch;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+#map {
+        height: 100%;
+      }
+
+    </style>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q="
+    crossorigin="anonymous"
+  />
+  </head>
+  <body>
+    <div id="navbar" class="navbar green">
+      <div id="logo">
+        <h3>COVID</h3>
+      </div>
+     
+    </div>
+    <div
+      style="display:flex;width: 100%;flex-direction: column; align-items:center;justify-content: center;"
+      id="loader"
+    >
+    
+      <div style="display:none" id="feed" class="ui feed" ">
+        
+      </div>
+      <button class="ui button"id="nextButton"onclick="addElements()" style="padding: bottom 10px;margin-top:20px;display: none;">Next</button>
+    </div>
+    
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+      integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD6TGKt6aLk0zXViQVlEjI3O0eEJ_UT45A",
+        authDomain: "covid-flutter.firebaseapp.com",
+        databaseURL: "https://covid-flutter.firebaseio.com",
+        projectId: "covid-flutter",
+        storageBucket: "covid-flutter.appspot.com",
+        messagingSenderId: "1018372435584",
+        appId: "1:1018372435584:web:f4c58909b5db83e61bc065",
+        measurementId: "G-VZCJX1XMQ2"
+      };
+      var db;
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+};
+
+    </script>
+
+
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div id="modalContent" class="modal-content">
+    <span class="close">&times;</span>
+    <div id="map"></div>
+  </div>
+
+</div>
+
+
+    <script>
+     window.count=0;
+     window.trackingData=[];
+     var modal = document.getElementById("myModal");
+
+
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function extract(obj) {
+                for (var name in obj) {
+                  return {
+                    title: name,
+                    loc: obj[name]
+                  };
+                }
+              }
+
+
+function initMap() {
+  console.log("init")
+        var markerArray = [];
+
+        // Instantiate a directions service.
+        var directionsService = new google.maps.DirectionsService;
+
+        // Create a map and center it on Manhattan.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: 40.771, lng: -73.974}
+        });
+
+        // Create a renderer for directions and bind it to the map.
+        var directionsRenderer = new google.maps.DirectionsRenderer({map: map});
+        var stepDisplay = new google.maps.InfoWindow;
+       
+
+        // Display the route between the initial start and end selections.
+        calculateAndDisplayRoute(
+            directionsRenderer, directionsService, markerArray, stepDisplay, map);
+        // Listen to change events from the start and end lists.
+        var onChangeHandler = function(e) {
+          var int=parseInt(e.target.id)
+          window.currentData= window.trackingData[int];
+          window.currentOrigin=extract(JSON.parse(window.currentData[0])).loc;
+          window.currentDestination=extract(JSON.parse(window.currentData[window.currentData.length-1])).loc;
+          console.log(window.currentDestination)
+          calculateAndDisplayRoute(
+              directionsRenderer, directionsService, markerArray, stepDisplay, map);
+              var modal = document.getElementById("myModal");
+              modal.style.display="block";
+              
+        };
+        var elements=document.getElementsByClassName('listData');
+        for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', onChangeHandler);
+}
+      }
+
+      function calculateAndDisplayRoute(directionsRenderer, directionsService,
+          markerArray, stepDisplay, map) {
+        // First, remove any existing markers from the map.
+        for (var i = 0; i < markerArray.length; i++) {
+          markerArray[i].setMap(null);
+        }
+
+        // Retrieve the start and end locations and create a DirectionsRequest using
+        // WALKING directions.
+        directionsService.route({
+          origin: window.currentOrigin || 'RAIPUR',
+          destination: window.currentDestination || 'BHILAI',
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          // Route the directions and pass the response to a function to create
+          // markers for each step.
+          if (status === 'OK') {
+            
+            directionsRenderer.setDirections(response);
+            
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+
+
+     
+     
+     function addElements(){
+       console.log("adding elenets")
+        var first = db
+    .collection("people")
+    .orderBy("name").startAfter(window.startAt).limit(5); //imp: start after because we dont want repeated posts
+
+  return first.get().then(function(documentSnapshots) {
+    if (documentSnapshots.empty) {
+      document.getElementById('nextButton').setAttribute('disabled',"true");
+      return;
+    }
+    window.startAt=documentSnapshots.docs[documentSnapshots.docs.length-1].data().name;
+    var elem = document.getElementById("feed");
+    
+
+    
+    documentSnapshots.forEach(element => {
+      
+      infected = element.data().infected;
+      gender = element.data().gender;
+      //console.log(element.data());
+
+      var html = `<div class="event" style="padding-top: 50px;">
+          <div class="label">
+            <img
+              style="border-radius: 20px;width:45px"
+              src='${gender==="female"?"https://www.w3schools.com/howto/img_avatar2.png":"https://www.w3schools.com/howto/img_avatar.png"}'
+            />
+          </div>
+          <div class="content">
+            <div class="summary">
+              <a id='${window.count}' style="color:${infected===true?"red":"green"}"class="listData">
+               ${element.data().name}
+              </a>
+             
+            </div>
+            <div class="meta">
+              <a class="like"> <i class="phone icon"></i> ${element.data().phone} </a>
+            </div>
+          </div>
+        </div>`;
+
+      elem.innerHTML += html;
+      window.count++;
+      window.trackingData.push(element.data().trackingData);
+      
+
+
+      })
+      initMap() //if not included here as well, shows weird behaviour (maps wont show on fetching new people)
+    })
+  }
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          window.startAt='A';
+          const urlParams = new URLSearchParams(window.location.search);
+          const myParam = urlParams.get('filter'); //use this for filtering data
+          db = firebase.firestore();
+
+
+          var first = db
+    .collection("people")
+    .orderBy("name")
+    .startAt(window.startAt).limit(5);
+
+  return first.get().then(function(documentSnapshots) {
+    if (documentSnapshots.empty) {
+      document.getElementById('nextButton').classList.add('disabled');
+      return;
+    }
+    
+    var elem = document.getElementById("feed");
+    
+    window.startAt=documentSnapshots.docs[documentSnapshots.docs.length-1].data().name; //start with nextname
+    
+    documentSnapshots.forEach(element => {
+      Name = element.data().name;
+      infected = element.data().infected;
+      gender = element.data().gender;
+      //console.log(element.data());
+
+      var html = `<div class="event" style="padding-top: 50px;">
+          <div class="label">
+            <img
+              style="border-radius: 20px;width:45px"
+              src='${gender==="female"?"https://www.w3schools.com/howto/img_avatar2.png":"https://www.w3schools.com/howto/img_avatar.png"}'
+            />
+          </div>
+          <div class="content">
+            <div class="summary">
+              <a id='${window.count}' style="color:${infected===true?"red":"green"}"class="listData">
+               ${element.data().name}
+              </a>
+             
+            </div>
+            <div class="meta">
+              <a class="like"> <i class="phone icon"></i> ${element.data().phone} </a>
+            </div>
+          </div>
+        </div>`;
+
+      elem.innerHTML += html;
+      window.count++;
+      window.trackingData.push(element.data().trackingData);
+      
+    });
+    document.getElementById('feed').style.display="block";
+      
+      document.getElementById('nextButton').style.display="flex";
+      
+  initMap();
+    //set timeout and call itself to create a polling mechanism
+    
+  });
+
+
+
+        } else {
+          window.location.assign("./login.html");
+        }
+      });
+    </script>
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBFrCkSgU3KmbU06ym27Eeqjlotb5sL9I">
+    </script>
+  </body>
+</html>
